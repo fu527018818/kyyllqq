@@ -24,7 +24,7 @@ export default {
   },
   searchGo() {
      router.push ({
-      uri: '/View/Search'
+      uri: 'Search'
     })
     this.$emit('searchGo')
   }

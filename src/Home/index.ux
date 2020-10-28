@@ -1,10 +1,10 @@
-<import name="SearchLink" src="../../Components/SearchLink"></import>
+<import name="SearchLink" src="../Components/SearchLink"></import>
 <template>
   <!-- template里只能有一个根节点 -->
   <tabs onchange="changeTabActive">
      <tab-content scrollable="{{scrollable}}">
       <div class="home-bx">
-          <text class="title">浏览</text>
+          <text class="title">浏览器</text>
          <SearchLink></SearchLink>
       </div>
       <div class="consult-bx">
@@ -24,7 +24,7 @@
 
 <script>
 import router from '@system.router'
-import  { shieldCheck } from '../../Apis/common'
+import  { shieldCheck } from '../Apis/common'
 import barcode from '@system.barcode'
 export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
@@ -33,16 +33,16 @@ export default {
     scrollable:false,
     tabBarData: [
         {
-          image: '../../Assets/img/template-home.png',
+          image: '../Assets/img/template-home.png',
           text: '首页'
         },{
-         image: '../../Assets/img/zixun.png',
+         image: '../Assets/img/zixun.png',
           text: '资讯'
         },{
-          image: '../../Assets/img/shoucang.png',
+          image: '../Assets/img/shoucang.png',
           text: '收藏'
         },{
-          image: '../../Assets/img/open.png',
+          image: '../Assets/img/open.png',
           text: '操作'
         }
       ],
@@ -74,7 +74,7 @@ export default {
   changeTabActive(e){
     if(e.data.index === 2) {
       router.push ({
-      uri: '/View/Collect'
+      uri: 'Collect'
     })
     }
     console.log(e)

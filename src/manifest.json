@@ -37,15 +37,15 @@
     "logLevel": "off"
   },
   "router": {
-    "entry": "View/Home",
+    "entry": "Home",
     "pages": {
-      "View/Home": {
+      "Home": {
         "component": "index"
       },
-      "View/Search": {
+      "Search": {
         "component": "index"
       },
-      "View/Collect": {
+      "Collect": {
         "component": "index"
       }
     },
@@ -71,10 +71,7 @@
     },
     "titleBar": false,
     "pages": {
-      "View/Home": {},
-      "View/Collect": {
-        "titleBarText": "收藏"
-      }
+      "Home": {}
     }
   }
 }
