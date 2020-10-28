@@ -1,19 +1,28 @@
 <template>
   <!-- template里只能有一个根节点 -->
-  <div class="home-bx">
-    <text class="title">浏览器</text>
-    <div 
-      onclick="searchGo"
-      class="home-ipt_bx">
-      <text>请输入搜索内容或者网址</text>
-      <image onclick="scanCode" src="/Assets/img/open-code.png"></image>
-    </div>
-<!--     
-    <text class="title">欢迎打开{{title}}</text>
-    <image class="swiper-arrow" src="/Assets/img/bookshelf_select.png"></image> -->
-    <!-- 点击跳转详情页 -->
-    <!-- <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail" /> -->
-  </div>
+  <tabs id="tabs" onchange="changeTabActive">
+     <tab-content id="tabContent">
+      <div class="home-bx">
+          <text class="title">浏览器</text>
+          <div 
+            onclick="searchGo"
+            class="home-ipt_bx">
+            <text>请输入搜索内容或者网址</text>
+            <image onclick="scanCode" src="/Assets/img/open-code.png"></image>
+          </div>
+        <!-- <text>21212</text> -->
+      </div>
+      <div>
+        <text>资讯</text>
+      </div>
+       </tab-content>
+       <tab-bar id="tabBar" class="footer-container">
+        <div class="tab-bar-item" for="tabBarData">
+          <image class="tab-bar-image" src="{{$item.image}}"></image>
+          <!-- <text class="tab-bar-text">{{$item.text}}</text> -->
+        </div>
+  </tab-bar>
+  </tabs>
 </template>
 
 <script>
@@ -23,7 +32,22 @@ import barcode from '@system.barcode'
 export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
   private: {
-    title: '示例页面'
+    title: '示例页面',
+    tabBarData: [
+        {
+          image: '../Assets/img/template-home.png',
+          text: '首页'
+        },{
+         image: '../Assets/img/zixun.png',
+          text: '资讯'
+        },{
+          image: '../Assets/img/shoucang.png',
+          text: '收藏'
+        },{
+          image: '../Assets/img/open.png',
+          text: '操作'
+        }
+      ],
   },
   onInit() {
       console.log(shieldCheck)
@@ -37,6 +61,9 @@ export default {
         console.log(`handling fail, code = ${code}`)
       }
     })
+  },
+  changeTabActive(e){
+    console.log(e)
   },
   searchGo(){
     console.log(456)
@@ -60,7 +87,7 @@ export default {
     /* justify-content: center; */
     /* align-items: center; */
     padding: 0 30px 30px;
-    margin-top: 350px;
+    padding-top: 350px;
       .home-ipt_bx {
         width: 100%;
         padding: 15px 25px 15px 15px;
@@ -96,5 +123,16 @@ export default {
     background-color: #09ba07;
     font-size: 30px;
     color: #ffffff;
+  }
+  .tab-bar-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  .footer-container {
+    height: 100px;
+    border-top-width: 1px;
+    border-color: #bbbbbb;
+    background-color: #ffffff;
   }
 </style>

@@ -1,3 +1,4 @@
 {
-    "hap.typesVersion": "1070"
+    "hap.typesVersion": "1070",
+    "hap-debugger.autoCompile": true
 }

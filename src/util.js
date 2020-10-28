@@ -67,6 +67,6 @@ function createShortcut () {
 }
 
 export default {
-  showMenu,
+  // showMenu,
   createShortcut
 }
