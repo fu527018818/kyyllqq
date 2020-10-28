@@ -12,6 +12,7 @@
     "watch": "hap watch"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@types/quickapp": "git+https://github.com/vivoquickapp/quickapp-types.git",
     "babel-eslint": "^10.0.1",
     "eslint": "5.16.0",

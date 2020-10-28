@@ -24,7 +24,7 @@ export default {
   },
   searchGo() {
      router.push ({
-      uri: 'Search'
+      uri: 'View/Search'
     })
     this.$emit('searchGo')
   }
@@ -38,18 +38,6 @@ export default {
         border: 1px solid #000;
         border-radius: 20px;
         display: flex;
-        user-select: none;
-        /* text {
-          padding-left: 15px;
-          flex: 1;
-          user-select: none;
-        } */
-        /* image {
-          width: 70px;
-          height: 50px;
-          padding-left: 20px;
-          
-        } */
   }
    text {
           padding-left: 15px;

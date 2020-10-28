@@ -1,10 +1,10 @@
 <import name="SearchLink" src="../Components/SearchLink"></import>
 <template>
   <div class="page">
-  <tabs class="tabs" onchange="changeTabactive" index="0">
+  <tabs class="tabs" onchange="changeTabActive">
       <tab-content class="tab-content" scrollable="{{scrollable}}">
         <div class="home-bx">
-          <text class="title">浏览</text>
+          <text class="title">浏览器</text>
          <SearchLink></SearchLink>
       </div>
       <div class="consult-bx">
@@ -61,9 +61,10 @@ export default {
     })
   },
   changeTabActive(e){
-    if(e.data.index === 2) {
+    console.log(e)
+    if(e.data.index == 2) {
       router.push ({
-      uri: 'Collect'
+      uri: 'View/Collect'
     })
     }
   }

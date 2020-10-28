@@ -2,8 +2,8 @@
   "package": "com.exam",
   "name": "极速浏览器",
   "versionName": "1.0.0",
-  "versionCode": "1",
-  "minPlatformVersion": "1000",
+  "versionCode": 1,
+  "minPlatformVersion": 1000,
   "icon": "/Common/logo.png",
   "features": [
     {
@@ -42,10 +42,10 @@
       "Home": {
         "component": "index"
       },
-      "Search": {
+      "View/Search": {
         "component": "index"
       },
-      "Collect": {
+      "View/Collect": {
         "component": "index"
       }
     },
