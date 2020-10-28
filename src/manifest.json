@@ -15,9 +15,18 @@
     {
       "name": "system.shortcut"
     },
-    { "name": "system.request" },
-    { "name": "system.fetch" },
-    { "name": "system.barcode" }
+    {
+      "name": "system.request"
+    },
+    {
+      "name": "system.fetch"
+    },
+    {
+      "name": "system.barcode"
+    },
+    {
+      "name": "system.webview"
+    }
   ],
   "permissions": [
     {
@@ -28,15 +37,15 @@
     "logLevel": "off"
   },
   "router": {
-    "entry": "Home",
+    "entry": "View/Home",
     "pages": {
-      "Home": {
+      "View/Home": {
         "component": "index"
       },
-      "DemoDetail": {
+      "View/Search": {
         "component": "index"
       },
-      "About": {
+      "View/Collect": {
         "component": "index"
       }
     },
@@ -57,19 +66,14 @@
   "display": {
     "titleBarBackgroundColor": "#f2f2f2",
     "titleBarTextColor": "#414141",
-    "menuBarData":{
-      "menuBar" : false
+    "menuBarData": {
+      "menuBar": false
     },
     "titleBar": false,
     "pages": {
-      "Home": {
-         
-      },
-      "DemoDetail": {
-        "titleBarText": "详情页"
-      },
-      "About": {
-        "menu": false
+      "View/Home": {},
+      "View/Collect": {
+        "titleBarText": "收藏"
       }
     }
   }

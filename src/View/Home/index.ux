@@ -1,25 +1,22 @@
+<import name="SearchLink" src="../../Components/SearchLink"></import>
 <template>
   <!-- template里只能有一个根节点 -->
-  <tabs id="tabs" onchange="changeTabActive">
-     <tab-content id="tabContent">
+  <tabs onchange="changeTabActive">
+     <tab-content>
       <div class="home-bx">
           <text class="title">浏览器</text>
-          <div 
-            onclick="searchGo"
-            class="home-ipt_bx">
-            <text>请输入搜索内容或者网址</text>
-            <image onclick="scanCode" src="/Assets/img/open-code.png"></image>
-          </div>
-        <!-- <text>21212</text> -->
+         <SearchLink/>
       </div>
-      <div>
-        <text>资讯</text>
+      <div class="consult-bx">
+        <div class="serch-cs_bx">
+          <SearchLink/>
+        </div>
+        <web src="{{webSrc}}" ontitlereceive="onTitleReceive"></web>
       </div>
        </tab-content>
-       <tab-bar id="tabBar" class="footer-container">
+       <tab-bar class="footer-container">
         <div class="tab-bar-item" for="tabBarData">
           <image class="tab-bar-image" src="{{$item.image}}"></image>
-          <!-- <text class="tab-bar-text">{{$item.text}}</text> -->
         </div>
   </tab-bar>
   </tabs>
@@ -27,7 +24,7 @@
 
 <script>
 import router from '@system.router'
-import  { shieldCheck } from '../Apis/common'
+import  { shieldCheck } from '../../Apis/common'
 import barcode from '@system.barcode'
 export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
@@ -35,19 +32,30 @@ export default {
     title: '示例页面',
     tabBarData: [
         {
-          image: '../Assets/img/template-home.png',
+          image: '../../Assets/img/template-home.png',
           text: '首页'
         },{
-         image: '../Assets/img/zixun.png',
+         image: '../../Assets/img/zixun.png',
           text: '资讯'
         },{
-          image: '../Assets/img/shoucang.png',
+          image: '../../Assets/img/shoucang.png',
           text: '收藏'
         },{
-          image: '../Assets/img/open.png',
+          image: '../../Assets/img/open.png',
           text: '操作'
         }
       ],
+      // "https://m.baidu.com/"
+      webSrc:'https://www.quickapp.cn/'
+  },
+  onTitleReceive(){
+
+  },
+  onPageStart (e) {
+      console.info('### pagestart ###'+e.url)
+    },
+  onPageFinish(){
+
   },
   onInit() {
       console.log(shieldCheck)
@@ -63,6 +71,11 @@ export default {
     })
   },
   changeTabActive(e){
+    if(e.data.index === 2) {
+      router.push ({
+      uri: '/View/Collect'
+    })
+    }
     console.log(e)
   },
   searchGo(){
@@ -70,44 +83,27 @@ export default {
   },
   routeDetail () {
     // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
-    router.push ({
-      uri: '/DemoDetail'
-    })
+    // router.push ({
+    //   uri: '/DemoDetail'
+    // })
   }
 }
 </script>
 
 <style lang="less">
-  /* @import '../Assets/css/common.less'; */
-   /* .content {
-      color: red;
-    } */
+   .consult-bx {
+     flex-direction: column;
+     .serch-cs_bx {
+        padding: 10px 30px 30px;
+     }
+   }
   .home-bx {
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
     padding: 0 30px 30px;
     padding-top: 350px;
-      .home-ipt_bx {
-        width: 100%;
-        padding: 15px 25px 15px 15px;
-        border: 1px solid #000;
-        border-radius: 20px;
-        display: flex;
-        user-select: none;
-        text {
-          /* color: #eee; */
-          padding-left: 15px;
-          flex: 1;
-          user-select: none;
-        }
-        image {
-          width: 70px;
-          height: 50px;
-          padding-left: 20px;
-          
-        }
-    }
+   
   }
 
   .title {
@@ -115,15 +111,6 @@ export default {
     text-align: center;
   }
 
-  .btn {
-    width: 550px;
-    height: 86px;
-    margin-top: 75px;
-    border-radius: 43px;
-    background-color: #09ba07;
-    font-size: 30px;
-    color: #ffffff;
-  }
   .tab-bar-image {
     width: 50px;
     height: 50px;

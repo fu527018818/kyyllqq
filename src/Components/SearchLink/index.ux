@@ -1,0 +1,65 @@
+<template>
+  <div 
+      onclick="searchGo"
+      class="home-ipt_bx">
+      <text class="des">请输入搜索内容或者网址</text>
+      <image onclick="scanCode" src="/Assets/img/open-code.png"></image>
+    </div>
+</template>
+
+<script>
+import router from '@system.router'
+export default {
+  props: {
+    // btnType: {
+    //   type: String,
+    //   default: 'primary'
+    // },
+    // title: {
+    //   type: String,
+    //   default: '点击按键'
+    // }
+  },
+  data: {
+  },
+  searchGo() {
+     router.push ({
+      uri: '/View/Search'
+    })
+    this.$emit('searchGo')
+  }
+}
+</script>
+
+<style lang="less">
+  .home-ipt_bx {
+        width: 100%;
+        padding: 15px 25px 15px 15px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        display: flex;
+        user-select: none;
+        /* text {
+          padding-left: 15px;
+          flex: 1;
+          user-select: none;
+        } */
+        /* image {
+          width: 70px;
+          height: 50px;
+          padding-left: 20px;
+          
+        } */
+  }
+   text {
+          padding-left: 15px;
+          flex: 1;
+          user-select: none;
+        }
+         image {
+          width: 70px;
+          height: 50px;
+          padding-left: 20px;
+          
+        }
+</style>
