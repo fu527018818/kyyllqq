@@ -2,7 +2,7 @@
 <template>
   <!-- template里只能有一个根节点 -->
   <tabs onchange="changeTabActive">
-     <tab-content>
+     <tab-content scrollable="{{scrollable}}">
       <div class="home-bx">
           <text class="title">浏览器</text>
          <SearchLink/>
@@ -30,6 +30,7 @@ export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
   private: {
     title: '示例页面',
+    scrollable:false,
     tabBarData: [
         {
           image: '../../Assets/img/template-home.png',
