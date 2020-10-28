@@ -4,7 +4,7 @@
   <tabs class="tabs" onchange="changeTabActive">
       <tab-content class="tab-content" scrollable="{{scrollable}}">
         <div class="home-bx">
-          <text class="title">浏览器</text>
+          <text class="title">高级搜索</text>
          <SearchLink></SearchLink>
       </div>
       <div class="consult-bx">
