@@ -1,29 +1,25 @@
 <import name="SearchLink" src="../Components/SearchLink"></import>
 <template>
-  <!-- template里只能有一个根节点 -->
-  <!-- <div><text>21212</text></div> -->
-  <div>
-  <tabs onchange="changeTabActive">
-    
-     <tab-content scrollable="{{scrollable}}">
+  <div class="page">
+  <tabs class="tabs" onchange="changeTabactive" index="0">
+      <tab-content class="tab-content" scrollable="{{scrollable}}">
         <div class="home-bx">
-            <text class="title">浏览器</text>
-            <SearchLink></SearchLink>
+          <text class="title">浏览</text>
+         <SearchLink></SearchLink>
+      </div>
+      <div class="consult-bx">
+        <div class="serch-cs_bx">
+          <SearchLink></SearchLink>
         </div>
-        <div class="consult-bx">
-              <div class="serch-cs_bx">
-                <SearchLink></SearchLink>
-              </div>
-            <web src="{{webSrc}}"></web>
+        <web src="{{webSrc}}" ontitlereceive="onTitleReceive"></web>
+      </div>
+      </tab-content>
+      <tab-bar class="footer-container">
+        <div class="tab-bar-item" for="tabBarData">
+          <image class="tab-bar-image" src="{{$item.image}}"></image>
         </div>
-       </tab-content>
-       <!-- 扫码调试时有问题。待查 -->
-       <tab-bar class="footer-container">
-            <div class="tab-bar-item" for="{{tabBarData}}">
-              <image class="tab-bar-image" src="{{$item.image}}"></image>
-          </div> 
-        </tab-bar>
-  </tabs>
+      </tab-bar>
+    </tabs>
   </div>
 </template>
 
@@ -75,6 +71,9 @@ export default {
 </script>
 
 <style lang="less">
+    .page {
+      flex-direction: column;
+    }
    .consult-bx {
      flex-direction: column;
      .serch-cs_bx {
