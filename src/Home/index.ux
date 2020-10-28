@@ -1,38 +1,42 @@
 <import name="SearchLink" src="../Components/SearchLink"></import>
 <template>
   <!-- template里只能有一个根节点 -->
+  <!-- <div><text>21212</text></div> -->
+  <div>
   <tabs onchange="changeTabActive">
+    
      <tab-content scrollable="{{scrollable}}">
-      <div class="home-bx">
-          <text class="title">浏览器</text>
-         <SearchLink></SearchLink>
-      </div>
-      <div class="consult-bx">
-        <div class="serch-cs_bx">
-          <SearchLink></SearchLink>
+        <div class="home-bx">
+            <text class="title">浏览器</text>
+            <SearchLink></SearchLink>
         </div>
-        <web src="{{webSrc}}" ontitlereceive="onTitleReceive"></web>
-      </div>
+        <div class="consult-bx">
+              <div class="serch-cs_bx">
+                <SearchLink></SearchLink>
+              </div>
+            <web src="{{webSrc}}"></web>
+        </div>
        </tab-content>
+       <!-- 扫码调试时有问题。待查 -->
        <tab-bar class="footer-container">
-        <div class="tab-bar-item" for="tabBarData">
-          <image class="tab-bar-image" src="{{$item.image}}"></image>
-        </div>
-  </tab-bar>
+            <div class="tab-bar-item" for="{{tabBarData}}">
+              <image class="tab-bar-image" src="{{$item.image}}"></image>
+          </div> 
+        </tab-bar>
   </tabs>
+  </div>
 </template>
 
 <script>
 import router from '@system.router'
-import  { shieldCheck } from '../Apis/common'
+// import  { shieldCheck } from '../Apis/common'
 import barcode from '@system.barcode'
 export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
   private: {
     title: '示例页面',
     scrollable:false,
-    tabBarData: [
-        {
+    tabBarData: [{
           image: '../Assets/img/template-home.png',
           text: '首页'
         },{
@@ -44,22 +48,11 @@ export default {
         },{
           image: '../Assets/img/open.png',
           text: '操作'
-        }
-      ],
-      // "https://m.baidu.com/"
+        }],
       webSrc:'https://www.quickapp.cn/'
   },
-  onTitleReceive(){
-
-  },
-  onPageStart (e) {
-      console.info('### pagestart ###'+e.url)
-    },
-  onPageFinish(){
-
-  },
   onInit() {
-      console.log(shieldCheck)
+      // console.log(shieldCheck)
   }, //扫码
   scanCode(){
     barcode.scan({
@@ -77,16 +70,6 @@ export default {
       uri: 'Collect'
     })
     }
-    console.log(e)
-  },
-  searchGo(){
-    console.log(456)
-  },
-  routeDetail () {
-    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
-    // router.push ({
-    //   uri: '/DemoDetail'
-    // })
   }
 }
 </script>
@@ -115,7 +98,7 @@ export default {
   .tab-bar-image {
     width: 50px;
     height: 50px;
-    object-fit: contain;
+    /* object-fit: contain; */
   }
   .footer-container {
     height: 100px;
